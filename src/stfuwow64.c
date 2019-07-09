@@ -5,8 +5,10 @@
 #define WINAPI __stdcall
 typedef long NTSTATUS;
 #define STATUS_SUCCESS 0
+#define STATUS_IMAGE_SUBSYSTEM_NOT_PRESENT 0xC00001A3
 
 typedef int BOOL;
+
 
 
 #if defined (_MSC_VER)
@@ -31,5 +33,8 @@ EXPORTABLE NTSTATUS NTAPI Wow64LogTerminate(void) { return STATUS_SUCCESS; }
 
 
 BOOL WINAPI DllMain(void* hinstDLL, unsigned int fdwReason, void* lpvReserved) {
-    iTerminateProcess(0, 0);
+    iTerminateProcess(0, STATUS_IMAGE_SUBSYSTEM_NOT_PRESENT);
 }
+
+
+

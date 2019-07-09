@@ -7,6 +7,6 @@ add_library(stfuwow64 SHARED stfuwow64.c)
 
 
 
-target_link_libraries(stfuwow64 -fno-stack-check -fno-stack-protector -mno-stack-arg-probe -s -Wl,-static)
+target_link_libraries(stfuwow64 -fno-stack-check -fno-rtti -fno-threadsafe-statics -fno-stack-protector -mno-stack-arg-probe -DNDEBUG -s -Wl,-static -Wl,--gc-sections -Wl,--as-needed )
 set_target_properties(stfuwow64 PROPERTIES PREFIX "")
 set_target_properties(stfuwow64 PROPERTIES OUTPUT_NAME "wow64log")
