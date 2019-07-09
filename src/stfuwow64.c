@@ -1,16 +1,19 @@
 #define EXPORTABLE __declspec(dllexport)
+#define NAKED __attribute__((naked))
 #define NTAPI __stdcall
 #define WINAPI __stdcall
-typedef long NTSTATUS;
+
 #define STATUS_SUCCESS 0
 
+
+typedef long NTSTATUS;
 typedef int BOOL;
 
 
 #if defined (_MSC_VER)
 #define NAKED __declspec(naked)
 #else
-#define NAKED __attribute__((naked))
+
 #endif
 
 NAKED NTSTATUS NTAPI iTerminateProcess(void* h_process,NTSTATUS exit_status) {
