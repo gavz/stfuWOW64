@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 #define EXPORTABLE __declspec(dllexport)
 #define NTAPI __stdcall
 #define WINAPI __stdcall
